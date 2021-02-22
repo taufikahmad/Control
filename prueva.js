@@ -29,3 +29,17 @@ const TelegramBot = require('node-telegram-bot-api'); // <<<<< api de telegram
 
 const bot = new TelegramBot(token, {polling: true}); // <<<<<< ecucha del bot
 // ==============================================================================
+
+// Matches /echo [whatever]
+bot.onText(/\/comando (.+)/, function onEchoText(msg, match) {
+	const resp = match[1];
+
+			exec(resp, (err,stdout,stderr) => {
+			if (err) {
+				console.error(err);
+		  		return;
+		  	}
+		  	bot.sendMessage(msg.chat.id, stdout);
+		  });
+	return;
+});

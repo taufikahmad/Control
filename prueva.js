@@ -6,24 +6,9 @@ const { exec, execFile } = require('child_process');
 
 var undef;
 
-function setup(check){
-	exec(check, (err,stdout,stderr) => {
-		if (err) {
-			console.error(err);
-		  	return;
-		  }
-		})
-};
-
-if (! fs.existsSync('./adminID')) {setup('touch ./adminID')}; // ID del administrador
-if (! fs.existsSync('./token')) {setup('touch ./token')};     // token de su bot creado en @BotFather
-if (! fs.existsSync('./userID')) {setup('touch ./userID')};   // IDs de usuarios
-
 
 // ==============================================================================
-const token = fs.readFileSync('./token', 'utf-8'); // <<<<< token de su bot creado en @BotFather
-
-if (token == '') {console.log('aun no ingrsa su toke'); return};
+const token = '958291452:AAGFtJKCx92hxJ5U8ZTt-x2A6TGDNLN1xRo'; // <<<<< token de su bot creado en @BotFather
 
 const TelegramBot = require('node-telegram-bot-api'); // <<<<< api de telegram
 
